@@ -1,0 +1,84 @@
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+				<label>USt-IdNr.</label>
+				<input
+                      type="text"
+                      class="form-control"
+                      id="USTId"
+                      placeholder=">USt=IdNr."
+                      formControlName="ustId"
+                />
+                <div *ngIf="formcontrols.ustId.touched && formcontrols.ustId.errors?.required" class="font">USt-IdNr ist erforderlich</div>
+		    </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+				<label>Steuernummer</label>
+				<input
+                      type="text"
+                      class="form-control"
+                      id="steuernummer"
+                      placeholder="Steuernummer"
+                      formControlName="steuernummer"
+                />
+                <div *ngIf="formcontrols.steuernummer.touched && formcontrols.steuernummer.errors?.required" class="font">Steuernummer ist erforderlich</div>
+                <div *ngIf="formcontrols.steuernummer.touched && formcontrols.steuernummer.errors?.pattern" class="font">Es sind nur Zahlen erlaubt</div>
+		    </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+				<label>Debitorennummer</label>
+				<input
+                      type="text"
+                      class="form-control"
+                      id="debitorennummer"
+                      placeholder="Debitorennummer"
+                      formControlName="debitorennummer"
+                />
+                <div *ngIf="formcontrols.debitorennummer.touched && formcontrols.debitorennummer.errors?.required" class="font">Debitorennummer ist erforderlich</div>
+		    </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+				<label>SEPA-Lastscriftmandat</label>
+				<input
+                      type="text"
+                      class="form-control"
+                      id="sepa"
+                      placeholder="SEPA"
+                      formControlName="sepa"
+                />
+                <div *ngIf="formcontrols.sepa.touched && formcontrols.sepa.errors?.required" class="font">SEPA-Lastscriftmandat ist erforderlich</div>
+		    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+				<label>Datum des SEPA-Lastscriftmandat</label>
+				<input
+                      type="date"
+                      class="form-control"
+                      id="datum"
+                      placeholder="Datum"
+                      formControlName="datum"
+                />
+                <div *ngIf="formcontrols.datum.touched && formcontrols.datum.errors?.required" class="font">Datum de SEPA-Lastscriftmandat ist erforderlich</div>
+                <div *ngIf="formcontrols.datum.touched && formcontrols.datum.errors?.invalidDate" class="font">Ungültiges Datum</div>
+            </div>
+        </div>
+    </div>
+    <div style="float:right">
+        <button type="button" class="btn btn-secondary mr-1" (click)="exit()">Abbrechen</button>
+        <button type="button" class="btn btn-success mr-1" [disabled]="!form.valid" (click)="saveAndNext()">Speichern und neuer Kunde</button>
+        <button type="button" class="btn btn-success mr-1"  (click)="save()">Speichern</button>
+    </div>
+</form>
+<br>
+<br>

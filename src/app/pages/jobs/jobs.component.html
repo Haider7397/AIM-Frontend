@@ -1,0 +1,117 @@
+<div class="container-fluid">
+
+	<div class="block-header">
+		<div class="row">
+			<div class="col-lg-5 col-md-8 col-sm-12">
+				<h2>
+					<a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+						<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+					</a>
+					Jobs
+				</h2>
+			</div>
+		</div>
+	</div>
+
+    <div style="float:right" *ngIf="roleID==='1'">
+        <button type="button" class="btn btn-success mr-1"  (click)="openModal(content,'lg')">Add New Job</button>
+    </div>
+    <br>
+    <br>
+
+	<div class="row clearfix">
+		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12" *ngFor="let job of jobs">
+			<div class="card">
+				<div class="header">
+					<h2>{{job.team}} Team</h2>
+					<ul class="header-dropdown" *ngIf="roleID==='1'">
+						<li class="dropdown" ngbDropdown>
+							<a href="javascript:void(0);" class="dropdown-toggle" role="button" ngbDropdownToggle></a>
+							<ul class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+								<li><a (click)="changeId(job.id);openModal(content,'lg')">Update</a></li>
+								<li><a (click)="delete(job.id);">Delete</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="body">
+					<h6 class="m-b-15">{{job.title}} </h6>
+					<p>{{job.description}}</p>
+					
+					<div class="row">
+						<div class="col-7">
+							<h6>Salary: {{job.salary}} EUR</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Add Job</h4>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form">
+          <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                    <label>Team</label>
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="team"
+                          placeholder="Team"
+                          formControlName="team"
+                    />
+                    <div *ngIf="formcontrols.team.touched && formcontrols.team.errors?.required" class="font">Team is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="salary"
+                          placeholder="salary"
+                          formControlName="salary"
+                    />
+                    <div *ngIf="formcontrols.salary.touched && formcontrols.salary.errors?.required" class="font">Salary is required</div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input
+                          type="text"
+                          class="form-control"
+                          id="title"
+                          placeholder="Title"
+                          formControlName="title"
+                    />
+                    <div *ngIf="formcontrols.title.touched && formcontrols.title.errors?.required" class="font">Title is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" rows="5" cols="30" name="description" formControlName="description" required></textarea>
+                    <div *ngIf="formcontrols.description.touched && formcontrols.description.errors?.required" class="font">Description is required</div>
+                </div>
+            </div>
+        </div>    
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="dataSave()">Save Changes</button>
+      <button type="button" class="btn btn-danger" (click)="closeModal()">Close</button>
+    </div>
+</ng-template>

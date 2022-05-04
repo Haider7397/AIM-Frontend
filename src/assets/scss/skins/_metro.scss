@@ -1,0 +1,154 @@
+﻿$white: #ffffff;
+$blue-grey-400: #78909c !default;
+$grey-900: #212121 !default;
+$primary-500: var(--primary) !default;
+
+body,
+#left-sidebar {
+    background-color: var(--primary-bg-500);
+}
+
+.body {
+
+    ::selection {
+        color: $white; 
+        background: $primary-500;
+    }
+
+    .page-loader-wrapper{
+        background: $primary-500;
+    }
+    
+    #left-sidebar .nav-tabs .nav-link.active{
+        color: $primary-500;
+    }
+
+    #main-content{
+        .card {
+            background: var(--primary-bg-300);
+        }
+    }
+
+    &:before,
+    &:after{
+        background: $primary-500;
+    }
+
+    #wrapper{
+        &:before,
+        &:after{
+            background: $primary-500;
+        }
+    }
+    
+    .sidebar-nav .metismenu>li.active>a{
+        border-left-color: $primary-500;
+    }
+
+    .navbar-fixed-top {
+        background: var(--primary-bg-300);
+        border-bottom: 1px solid var(--primary-bg-600);
+        .form-control {
+            background: var(--primary-bg-300);
+            border-color: var(--primary-bg-600);
+        }
+    }
+    
+    .navbar-nav ul.menu-icon{
+        background: $primary-500;
+    }
+
+    .fancy-checkbox {    
+        input[type="checkbox"] {
+    
+            &:checked + span:before {
+                background: $primary-500;
+                border-color: $primary-500;
+            }
+        }
+    }
+
+    #left-sidebar {
+        .fancy-checkbox {    
+            span:before {
+                border-color: var(--primary-bg-700);
+            }
+        }
+        .nav-tabs {
+            border-bottom-color: var(--primary-bg-700);
+            .nav-link {
+                &.active,
+                &:hover,
+                &:focus {
+                    border-color: var(--primary-bg-600) var(--primary-bg-600) var(--primary-bg-500);
+                }
+            }
+        }
+    }
+
+    .chat-widget {
+        li {
+            &.right {
+                
+                .chat-info {
+                    background: $primary-500;
+                    color: $white;
+    
+                    &:before{
+                        border-left: 10px solid $primary-500;
+                    }
+                }
+            }
+        }
+    }
+
+    .fc .fc-view-container .fc-view.fc-basic-view>table>thead tr th.fc-widget-header,.fc .fc-view-harness .fc-view.fc-daygrid>table>thead tr th.fc-col-header-cell{
+        background: $primary-500;
+        border-color: $primary-500;
+        color:$white;
+    }
+
+    .fc .fc-view-harness .fc-view.fc-daygrid>table>thead tr th.fc-col-header-cell a{
+        color:$white;
+    }
+    
+    .blog-page .single_post .footer .stats li a:hover{
+        color: $primary-500;
+    }
+
+    .auth-main{
+        .btn-primary{
+            background: $primary-500;
+            border-color: $primary-500;
+        }        
+    }
+
+    .sidebar-nav .metismenu>li i{
+        color: $primary-500;
+    }
+
+    .right_chat li a:hover{
+        .media-object {
+            border-color: $primary-500;
+        }        
+    }
+
+    .nav-tabs{
+        > li > a:hover, 
+        > li > a:focus {
+            background-color: var(--primary-bg-400);
+        }
+    }
+
+    .sketch-picker {
+        background: var(--primary-bg-300) !important;
+        .sketch-fields {
+            .wrap {
+                > input {
+                    background: var(--primary-bg-300);
+                }
+            }
+        }
+    }
+
+}

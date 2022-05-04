@@ -1,0 +1,27 @@
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-btn">
+            <button type="button" class="btn-toggle-offcanvas" (click)="toggleSideMenu()"><i
+                    class="lnr lnr-menu fa fa-bars"></i></button>
+        </div>
+
+        <div class="navbar-brand">
+            <a *ngIf="!darkClass" [routerLink]="['/admin']"><img src="assets/images/logo1.png" alt="Lucid Logo"
+                    class="img-responsive  logo1"></a>
+            <a *ngIf="darkClass" [routerLink]="['/admin']"><img src="assets/images/logo-white.svg" alt="Lucid Logo"
+                    class="img-responsive logo"></a>
+        </div>
+
+        <div class="navbar-right">
+
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a [routerLink]="['/auth/login']" (click)="logout()" class="icon-menu d-none d-sm-block"><i
+                                class="icon-login"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

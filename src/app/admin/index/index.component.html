@@ -1,0 +1,31 @@
+    
+<div class="container-fluid" *ngIf="!isResizing">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 col-sm-12">                        
+                <h2>
+                    <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+                        <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+                        <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+                    </a> Dashboard</h2>
+            </div>            
+        </div>
+    </div>
+
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Korona Visualization</h2>
+                </div>
+                <div class="body">
+                    <div><img src="assets/images/snapshot.svg" style="height:auto;width:100%"></div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+	<div class="block-header">
+		<div class="row">
+			<div class="col-lg-5 col-md-8 col-sm-12">
+				<h2>
+					<a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+						<i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+						<i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+					</a>
+					Customer Details
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="row clearfix">
+
+		<div class="col-lg-12 col-md-12">
+			<div class="card planned_task">
+				<div class="header">
+				</div>
+				<div class="body">
+					<div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                        <button type="button" class="btn btn-secondary" (click)="changeTabs('Kontaktdaten')">Kontaktdaten</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeTabs('Bankverbindung')">Bankverbindung</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeTabs('Sonstiges')">Sonstiges</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeTabs('Kunden-Attribute')">Kunden-Attribute</button>
+                        <button type="button" class="btn btn-secondary" (click)="changeTabs('Einstellungen')">Einstellungen</button>
+                    </div>
+                    <br>
+                    <br>
+
+                    <app-kontaktdaten (nextTab)="changeTabs($event)" *ngIf="tab==='Kontaktdaten'"></app-kontaktdaten>
+                    <app-bankverbindung (nextTab)="changeTabs($event)" *ngIf="tab==='Bankverbindung'"></app-bankverbindung>
+					<app-sonstiges *ngIf="tab==='Sonstiges'"></app-sonstiges>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

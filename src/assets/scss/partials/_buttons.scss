@@ -1,0 +1,6 @@
+.btn{
+	font-size: $font-size;
+	&:focus{
+		box-shadow:none !important;
+	}
+}
